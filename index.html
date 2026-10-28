@@ -189,9 +189,10 @@ window.onerror=function(msg){
 </div>
 
 <script>
-// ⚠️ ⚠️ ⚠️ PEGUE AQUÍ LA URL NUEVA de ESTE cuestionario de grupo focal (termina en /exec) ⚠️ ⚠️ ⚠️
-// ⚠️ NO use la URL del cuestionario de estudiantes ni la de la entrevista: son sistemas separados
-var URL_SCRIPT = 'PEGA_AQUI_LA_URL_NUEVA_DEL_CUESTIONARIO_FOCAL';
+// ══ URL del receptor (Google Apps Script) de ESTE cuestionario de grupo focal ══
+// YA ESTA CONFIGURADA: no la cambie. Es distinta a la del cuestionario de
+// estudiantes y a la de la entrevista, porque son tres sistemas separados.
+var URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbwIpiGDHvpjx1Fna0_sHyC6SUXBF5ky1WHRNyrUkDa__ym_W11g2JcKULDj0dHKKS7W/exec';
 
 var ESCALA = ['Totalmente en desacuerdo','En desacuerdo','Ni de acuerdo ni en desacuerdo','De acuerdo','Totalmente de acuerdo'];
 
@@ -302,6 +303,7 @@ function construirFormulario(){
     h += '<div class="dimension"><div class="dimension-cabecera"><h3>Dimensión '+dim.num+'. '+esc(dim.titulo)+'</h3>';
     if(dim.nota) h += '<p class="nota">'+esc(dim.nota)+'</p>';
     h += '</div><div class="dimension-cuerpo">';
+
     dim.items.forEach(function(it){
       h += '<div class="item" id="campo-'+it.id+'"><p class="item-texto"><span class="item-num">'+it.n+'.</span> '+esc(it.texto)+' <span class="req">*</span></p><div class="likert">';
       for(var v=1; v<=5; v++){
